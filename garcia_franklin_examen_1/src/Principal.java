@@ -96,6 +96,12 @@ public class Principal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         eliminar_p = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabla_eliminar = new javax.swing.JTextArea();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        tf_pos = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -523,6 +529,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem8);
 
         jMenuItem9.setText("Eliminar proyecto");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem9);
 
         jMenuItem10.setText("Log out");
@@ -612,15 +623,52 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
+        tabla_eliminar.setColumns(20);
+        tabla_eliminar.setRows(5);
+        jScrollPane3.setViewportView(tabla_eliminar);
+
+        jLabel21.setText("Eliminar");
+
+        jLabel24.setText("Ingrese pos de proyecto a eliminar");
+
+        jButton7.setText("Eliminar");
+
         javax.swing.GroupLayout eliminar_pLayout = new javax.swing.GroupLayout(eliminar_p.getContentPane());
         eliminar_p.getContentPane().setLayout(eliminar_pLayout);
         eliminar_pLayout.setHorizontalGroup(
             eliminar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 676, Short.MAX_VALUE)
+            .addGroup(eliminar_pLayout.createSequentialGroup()
+                .addGroup(eliminar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(eliminar_pLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(eliminar_pLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(jLabel21))
+                    .addGroup(eliminar_pLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel24)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_pos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(eliminar_pLayout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(jButton7)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         eliminar_pLayout.setVerticalGroup(
             eliminar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
+            .addGroup(eliminar_pLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addGroup(eliminar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(tf_pos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(32, 32, 32))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -917,9 +965,18 @@ public class Principal extends javax.swing.JFrame {
                     }
                 }
                 ta_todos.setText(e);
+                tabla_eliminar.setText(e); 
             }
         }
     }//GEN-LAST:event_seleccionItemStateChanged
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        eliminar_p.setModal(true);
+        eliminar_p.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+        eliminar_p.setLocationRelativeTo(this);
+        eliminar_p.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -979,6 +1036,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -992,8 +1050,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1018,6 +1078,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
@@ -1027,12 +1088,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> seleccion;
     private javax.swing.JTextArea ta_todos;
     private javax.swing.JTable tabla2;
+    private javax.swing.JTextArea tabla_eliminar;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_nombre_proyecto;
     private javax.swing.JTextField tf_password;
     private javax.swing.JTextField tf_password1;
+    private javax.swing.JTextField tf_pos;
     private javax.swing.JTextField tf_profesion;
     private javax.swing.JTextField tf_profesion1;
     private javax.swing.JTextField tf_username;
