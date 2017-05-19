@@ -545,6 +545,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem9);
 
         jMenuItem10.setText("Log out");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem10);
 
         jMenuBar2.add(jMenu3);
@@ -987,14 +992,14 @@ public class Principal extends javax.swing.JFrame {
         if (evt.getStateChange() == 1) {
             Usuario temp = (Usuario) seleccion.getSelectedItem();
             if (temp != null) {
-               String e="";
+                String e = "";
                 for (int i = 0; i < lista_usuarios.size(); i++) {
                     for (Proyecto l : lista_usuarios.get(i).getLista_proyecto()) {
-                         e+=l;
+                        e += l;
                     }
                 }
                 ta_todos.setText(e);
-                tabla_eliminar.setText(e); 
+                tabla_eliminar.setText(e);
             }
         }
     }//GEN-LAST:event_seleccionItemStateChanged
@@ -1004,7 +1009,7 @@ public class Principal extends javax.swing.JFrame {
         eliminar_p.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
         eliminar_p.setLocationRelativeTo(this);
         eliminar_p.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -1012,33 +1017,54 @@ public class Principal extends javax.swing.JFrame {
         modificar_p.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
         modificar_p.setLocationRelativeTo(this);
         modificar_p.setVisible(true);
-        
-       String poss=JOptionPane.showInputDialog("Ingrese opcion \n"
-               + "1--Entrar en una subcarpeta \n"
-               + "2--Crear archivo \n"
-               + "3--Modificar archivo \n"
-               + "4--Eliminar archivo \n"
-               + "5--Ingresar comando");
-        switch(poss){
-            case "1":{
-                int pos1=Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion"));
-                
-            }break;
-            case "2":{
-                
-            }break;
-            case "3":{
-                
-            }break;
-            case "4":{
-                
-            }break;
-            case "5":{
-                
-            }break;
-    }
-        
+        String e = "";
+        for (int i = 0; i < lista_usuarios.size(); i++) {
+            for (Proyecto l : lista_usuarios.get(i).getLista_proyecto()) {
+                e += l;
+            }
+        }
+        JOptionPane.showMessageDialog(null, e);
+        int posss = Integer.parseInt(JOptionPane.showInputDialog("Cual proyecto ?"));
+        Carpeta raiz = new Carpeta(); 
+        lista_usuarios.get(seleccion.getSelectedIndex()).getLista_proyecto().get(posss).getLista_archivos().add(raiz);
+        Carpeta nevegador = raiz;
+        String poss = JOptionPane.showInputDialog("Ingrese opcion \n"
+                + "1--Crear archivo \n"
+                + "2--Modificar archivo \n"
+                + "3--Eliminar archivo \n"
+                + "4--Ingresar comando");
+        switch (poss) {
+            case "1": {
+                String o=JOptionPane.showInputDialog("Ingrese opcion a crear \n"
+                        + "1-Nueva carpeta \n"
+                        + "2-Nuevo archivo \n");
+                if (o.equals("1")) {
+                    
+                }else if(o.equals("2")){
+                     
+                }
+            }
+            break;
+            case "2": {
+
+            }
+            break;
+            case "3": {
+
+            }
+            break;
+            case "4": {
+
+            }
+            break;
+           
+        }
+
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        Home.setVisible(false);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
