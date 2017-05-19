@@ -11,13 +11,22 @@
 public class Archivo {
     String nombre;
     int tamaño;
-
+    Carpeta perteneceA;
     public Archivo() {
     }
 
-    public Archivo(String nombre, int tamaño) {
+    public Archivo(String nombre, int tamaño, Carpeta perteneceA) {
         this.nombre = nombre;
         this.tamaño = tamaño;
+        this.perteneceA = perteneceA;
+    }
+
+    public Carpeta getPerteneceA() {
+        return perteneceA;
+    }
+
+    public void setPerteneceA(Carpeta perteneceA) {
+        this.perteneceA = perteneceA;
     }
 
     public String getNombre() {

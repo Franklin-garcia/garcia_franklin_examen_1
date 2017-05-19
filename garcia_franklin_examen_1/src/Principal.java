@@ -102,6 +102,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         tf_pos = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
+        modificar_p = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -526,6 +529,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setText("Modificar proyecto");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem8);
 
         jMenuItem9.setText("Eliminar proyecto");
@@ -669,6 +677,27 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton7)
                 .addGap(32, 32, 32))
+        );
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane5.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout modificar_pLayout = new javax.swing.GroupLayout(modificar_p.getContentPane());
+        modificar_p.getContentPane().setLayout(modificar_pLayout);
+        modificar_pLayout.setHorizontalGroup(
+            modificar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_pLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        modificar_pLayout.setVerticalGroup(
+            modificar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificar_pLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -975,8 +1004,41 @@ public class Principal extends javax.swing.JFrame {
         eliminar_p.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
         eliminar_p.setLocationRelativeTo(this);
         eliminar_p.setVisible(true);
-
+        
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        modificar_p.setModal(true);
+        modificar_p.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+        modificar_p.setLocationRelativeTo(this);
+        modificar_p.setVisible(true);
+        
+       String poss=JOptionPane.showInputDialog("Ingrese opcion \n"
+               + "1--Entrar en una subcarpeta \n"
+               + "2--Crear archivo \n"
+               + "3--Modificar archivo \n"
+               + "4--Eliminar archivo \n"
+               + "5--Ingresar comando");
+        switch(poss){
+            case "1":{
+                int pos1=Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion"));
+                
+            }break;
+            case "2":{
+                
+            }break;
+            case "3":{
+                
+            }break;
+            case "4":{
+                
+            }break;
+            case "5":{
+                
+            }break;
+    }
+        
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1080,11 +1142,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JDialog log_in;
+    private javax.swing.JDialog modificar_p;
     private javax.swing.JComboBox<String> seleccion;
     private javax.swing.JTextArea ta_todos;
     private javax.swing.JTable tabla2;

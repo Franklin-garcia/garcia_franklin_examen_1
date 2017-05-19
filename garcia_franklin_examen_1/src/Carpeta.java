@@ -18,9 +18,10 @@ public class Carpeta extends Archivo{
         super();
     }
 
-    public Carpeta(String nombre, int tamaño) {
-        super(nombre, tamaño);
+    public Carpeta(String nombre, int tamaño, Carpeta perteneceA) {
+        super(nombre, tamaño, perteneceA);
     }
+
 
     public ArrayList<Archivo> getLista_archivo() {
         return lista_archivo;

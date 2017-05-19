@@ -15,10 +15,11 @@ public class Archivo_texto extends Archivo{
         super();
     }
 
-    public Archivo_texto(String contenido, String nombre, int tamaño) {
-        super(nombre, tamaño);
-        this.contenido = contenido;
+    public Archivo_texto(String nombre, int tamaño, Carpeta perteneceA) {
+        super(nombre, tamaño, perteneceA);
     }
+
+   
 
     public String getContenido() {
         return contenido;
