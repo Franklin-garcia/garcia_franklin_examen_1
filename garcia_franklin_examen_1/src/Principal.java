@@ -1027,19 +1027,20 @@ public class Principal extends javax.swing.JFrame {
         int posss = Integer.parseInt(JOptionPane.showInputDialog("Cual proyecto ?"));
         Carpeta raiz = new Carpeta(); 
         lista_usuarios.get(seleccion.getSelectedIndex()).getLista_proyecto().get(posss).getLista_archivos().add(raiz);
-        Carpeta nevegador = raiz;
+        Carpeta navegador = raiz;
         String poss = JOptionPane.showInputDialog("Ingrese opcion \n"
                 + "1--Crear archivo \n"
                 + "2--Modificar archivo \n"
                 + "3--Eliminar archivo \n"
-                + "4--Ingresar comando");
+                + "4--Ingresar comando"
+                + "5--volver \n");
         switch (poss) {
             case "1": {
                 String o=JOptionPane.showInputDialog("Ingrese opcion a crear \n"
                         + "1-Nueva carpeta \n"
                         + "2-Nuevo archivo \n");
                 if (o.equals("1")) {
-                    
+                   
                 }else if(o.equals("2")){
                      
                 }
@@ -1057,6 +1058,9 @@ public class Principal extends javax.swing.JFrame {
 
             }
             break;
+            case "5":{
+                navegador=navegador.getPerteneceA();
+            }break;
            
         }
 
