@@ -74,9 +74,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        contrasena = new javax.swing.JTextField();
+        usuario = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        seleccion = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        Home = new javax.swing.JDialog();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -408,6 +411,12 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
+        log_in.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                log_inWindowActivated(evt);
+            }
+        });
+
         jLabel18.setText("Log in");
 
         jLabel19.setText("Username");
@@ -415,6 +424,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel20.setText("Password");
 
         jButton4.setText("Entrar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setText("Nombre");
 
         javax.swing.GroupLayout log_inLayout = new javax.swing.GroupLayout(log_in.getContentPane());
         log_in.getContentPane().setLayout(log_inLayout);
@@ -423,38 +439,58 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(log_inLayout.createSequentialGroup()
                 .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(log_inLayout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(jLabel18))
-                    .addGroup(log_inLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel19))
+                        .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
                         .addGap(28, 28, 28)
                         .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(log_inLayout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jButton4)))
+                        .addGap(187, 187, 187)
+                        .addComponent(jButton4))
+                    .addGroup(log_inLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(seleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(log_inLayout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel18))))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
         log_inLayout.setVerticalGroup(
             log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(log_inLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel18)
-                .addGap(18, 18, 18)
-                .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                    .addComponent(jLabel19)
+                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(log_inLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addGap(28, 28, 28)
                 .addComponent(jButton4)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
+        );
+
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home.getContentPane());
+        Home.getContentPane().setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -616,9 +652,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex())).setNombre(tf_nombre1.getText());
-        ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex()-1)).setPassword(tf_password1.getText());
-        ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex()-1)).setProfesión(tf_profesion1.getText());
-        ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex()-1)).setUsername(tf_usuario1.getText());
+        ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex() - 1)).setPassword(tf_password1.getText());
+        ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex() - 1)).setProfesión(tf_profesion1.getText());
+        ((Usuario) lista_usuarios.get(cb_usuario1.getSelectedIndex() - 1)).setUsername(tf_usuario1.getText());
         JOptionPane.showMessageDialog(null, "Se modifico con exito");
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -665,9 +701,38 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_password1ActionPerformed
 
+    private void log_inWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_log_inWindowActivated
+        if (log_in.isActive()) {
+            DefaultComboBoxModel modelo
+                    = new DefaultComboBoxModel();
+            for (Usuario t : lista_usuarios) {
+                modelo.addElement(t);
+            }
+            seleccion.setModel(modelo);
+
+        }
+
+    }//GEN-LAST:event_log_inWindowActivated
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        Usuario temp = (Usuario) seleccion.getSelectedItem();
+        if (temp != null) {
+            if ((temp.getUsername().equals(usuario.getText())) || (temp.getPassword().equals(contrasena))) {
+                Home.setModal(true);
+                Home.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+                Home.setLocationRelativeTo(this);
+                Home.setVisible(true);
+                usuario.setText("");
+                contrasena.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecta");
+            }
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -679,16 +744,24 @@ public class Principal extends javax.swing.JFrame {
                 if ("Linux".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -701,10 +774,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Home;
     private javax.swing.JTable Tabla1;
     private javax.swing.JComboBox<String> cb_usuario;
     private javax.swing.JComboBox<String> cb_usuario1;
     private javax.swing.JComboBox<String> cb_usuario2;
+    private javax.swing.JTextField contrasena;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -713,6 +788,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -738,13 +814,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JDialog log_in;
+    private javax.swing.JComboBox<String> seleccion;
     private javax.swing.JTable tabla2;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_nombre;
@@ -755,6 +830,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_profesion1;
     private javax.swing.JTextField tf_username;
     private javax.swing.JTextField tf_usuario1;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> lista_usuarios = new ArrayList();
 }
