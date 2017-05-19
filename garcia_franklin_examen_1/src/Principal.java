@@ -80,18 +80,21 @@ public class Principal extends javax.swing.JFrame {
         seleccion = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         Home = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        listar_p = new javax.swing.JDialog();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel21 = new javax.swing.JLabel();
+        crear_p = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        tf_nombre_proyecto = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -494,12 +497,18 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
         jMenu3.setText("Mi menu");
 
-        jMenuItem6.setText("Listar los proyectos");
-        jMenu3.add(jMenuItem6);
-
         jMenuItem7.setText("Crear poryecto");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setText("Modificar proyecto");
@@ -520,40 +529,69 @@ public class Principal extends javax.swing.JFrame {
         Home.getContentPane().setLayout(HomeLayout);
         HomeLayout.setHorizontalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+                .addContainerGap())
         );
         HomeLayout.setVerticalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
-        );
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
-
-        jLabel21.setText("Listar todos los proyecto");
-
-        javax.swing.GroupLayout listar_pLayout = new javax.swing.GroupLayout(listar_p.getContentPane());
-        listar_p.getContentPane().setLayout(listar_pLayout);
-        listar_pLayout.setHorizontalGroup(
-            listar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listar_pLayout.createSequentialGroup()
+            .addGroup(HomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(listar_pLayout.createSequentialGroup()
-                .addGap(306, 306, 306)
-                .addComponent(jLabel21)
-                .addContainerGap(298, Short.MAX_VALUE))
         );
-        listar_pLayout.setVerticalGroup(
-            listar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listar_pLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel21)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
-                .addContainerGap())
+
+        jLabel22.setText("Crear proyecto");
+
+        jLabel23.setText("Nombre del proyecto");
+
+        jButton5.setText("Buscar colaboradores");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        jButton6.setText("Crearproyecto");
+
+        javax.swing.GroupLayout crear_pLayout = new javax.swing.GroupLayout(crear_p.getContentPane());
+        crear_p.getContentPane().setLayout(crear_pLayout);
+        crear_pLayout.setHorizontalGroup(
+            crear_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crear_pLayout.createSequentialGroup()
+                .addGroup(crear_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(crear_pLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel22))
+                    .addGroup(crear_pLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_nombre_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(crear_pLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton5)))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crear_pLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(129, 129, 129))
+        );
+        crear_pLayout.setVerticalGroup(
+            crear_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crear_pLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel22)
+                .addGap(48, 48, 48)
+                .addGroup(crear_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(tf_nombre_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(jButton5)
+                .addGap(56, 56, 56)
+                .addComponent(jButton6)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -598,6 +636,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("Log in");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
@@ -793,9 +836,41 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        String res="1";
+        String e = "";
+        while (res.equals("1")) {
+            for (Usuario l : lista_usuarios) {
+                e += "\n" + lista_usuarios.indexOf(l) + " " + l;
+            }
+            JOptionPane.showMessageDialog(null, e);
+            int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pos del colaborador"));
+            lista_usuarios.get(pos).getLista_proyecto().add(new Proyecto(tf_nombre_proyecto.getText(), 0));
+            JOptionPane.showMessageDialog(null, "Se agrego con exito");
+            res = JOptionPane.showInputDialog("Quiere continuar \n"
+                    + "1--si \n"
+                    + "2--no \n");
+        }
+
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        log_in.setModal(true);
+        log_in.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+        log_in.setLocationRelativeTo(this);
+        log_in.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        crear_p.setModal(true);
+        crear_p.pack(); //acoplar el tamaño de la ventan a los objetos que estan incluidos en ella
+        crear_p.setLocationRelativeTo(this);
+        crear_p.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -843,10 +918,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_usuario1;
     private javax.swing.JComboBox<String> cb_usuario2;
     private javax.swing.JTextField contrasena;
+    private javax.swing.JDialog crear_p;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -860,7 +938,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -880,25 +959,24 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
-    private javax.swing.JDialog listar_p;
     private javax.swing.JDialog log_in;
     private javax.swing.JComboBox<String> seleccion;
     private javax.swing.JTable tabla2;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre1;
+    private javax.swing.JTextField tf_nombre_proyecto;
     private javax.swing.JTextField tf_password;
     private javax.swing.JTextField tf_password1;
     private javax.swing.JTextField tf_profesion;
@@ -908,4 +986,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> lista_usuarios = new ArrayList();
+    ArrayList<Proyecto> lista_proyecto = new ArrayList();
 }

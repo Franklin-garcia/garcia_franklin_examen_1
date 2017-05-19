@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,7 +17,8 @@ public class Usuario {
      String profesión;
      String username;
      String password;
-
+     ArrayList<Proyecto>lista_proyecto=new ArrayList();
+     
     public Usuario() {
     }
 
@@ -65,6 +69,15 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setLista_proyecto(ArrayList<Proyecto> lista_proyecto) {
+        this.lista_proyecto = lista_proyecto;
+    }
+
+    public ArrayList<Proyecto> getLista_proyecto() {
+        return lista_proyecto;
+    }
+    
 
     @Override
     public String toString() {
