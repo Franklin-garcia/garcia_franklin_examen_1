@@ -81,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         Home = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        ta_todos = new javax.swing.JTextArea();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -95,6 +95,7 @@ public class Principal extends javax.swing.JFrame {
         tf_nombre_proyecto = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        eliminar_p = new javax.swing.JDialog();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -445,6 +446,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        seleccion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seleccionItemStateChanged(evt);
+            }
+        });
+
         jLabel13.setText("Nombre");
 
         javax.swing.GroupLayout log_inLayout = new javax.swing.GroupLayout(log_in.getContentPane());
@@ -497,9 +504,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
+        ta_todos.setEditable(false);
+        ta_todos.setColumns(20);
+        ta_todos.setRows(5);
+        jScrollPane4.setViewportView(ta_todos);
 
         jMenu3.setText("Mi menu");
 
@@ -554,6 +562,16 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton6.setText("Crearproyecto");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout crear_pLayout = new javax.swing.GroupLayout(crear_p.getContentPane());
         crear_p.getContentPane().setLayout(crear_pLayout);
@@ -592,6 +610,17 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(jButton6)
                 .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout eliminar_pLayout = new javax.swing.GroupLayout(eliminar_p.getContentPane());
+        eliminar_p.getContentPane().setLayout(eliminar_pLayout);
+        eliminar_pLayout.setHorizontalGroup(
+            eliminar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 676, Short.MAX_VALUE)
+        );
+        eliminar_pLayout.setVerticalGroup(
+            eliminar_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 416, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -837,7 +866,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        String res="1";
+        String res = "1";
         String e = "";
         while (res.equals("1")) {
             for (Usuario l : lista_usuarios) {
@@ -867,6 +896,30 @@ public class Principal extends javax.swing.JFrame {
         crear_p.setLocationRelativeTo(this);
         crear_p.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        lista_usuarios.get(seleccion.getSelectedIndex()).getLista_proyecto().add(new Proyecto(tf_nombre_proyecto.getText(), 0));
+        JOptionPane.showMessageDialog(null, "Se agrego con exito");
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void seleccionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seleccionItemStateChanged
+        if (evt.getStateChange() == 1) {
+            Usuario temp = (Usuario) seleccion.getSelectedItem();
+            if (temp != null) {
+               String e="";
+                for (int i = 0; i < lista_usuarios.size(); i++) {
+                    for (Proyecto l : lista_usuarios.get(i).getLista_proyecto()) {
+                         e+=l;
+                    }
+                }
+                ta_todos.setText(e);
+            }
+        }
+    }//GEN-LAST:event_seleccionItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -919,6 +972,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_usuario2;
     private javax.swing.JTextField contrasena;
     private javax.swing.JDialog crear_p;
+    private javax.swing.JDialog eliminar_p;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -965,13 +1019,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JDialog log_in;
     private javax.swing.JComboBox<String> seleccion;
+    private javax.swing.JTextArea ta_todos;
     private javax.swing.JTable tabla2;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_nombre;

@@ -58,7 +58,7 @@ public class Proyecto {
 
     @Override
     public String toString() {
-        return "Proyecto{" + "nombre=" + nombre + ", lista_archivos=" + lista_archivos + ", lista_usuario=" + lista_usuario + ", commit=" + commit + '}';
+        return "Proyecto{" + "nombre= \n" + nombre + ", lista_archivos= \n" + lista_archivos + ", lista_usuario= \n" + lista_usuario + ", commit= \n" + commit + '}';
     }
 
 
