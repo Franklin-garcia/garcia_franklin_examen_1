@@ -1040,7 +1040,6 @@ public class Principal extends javax.swing.JFrame {
                         + "1-Nueva carpeta \n"
                         + "2-Nuevo archivo \n");
                 if (o.equals("1")) {
-                    int posi=Integer.parseInt(JOptionPane.showInputDialog("Donde quiero crear"));
                     navegador.getLista_archivo().add(new Carpeta());
                 } else if (o.equals("2")) {
                     navegador.getLista_archivo().add(new Archivo());
@@ -1052,7 +1051,13 @@ public class Principal extends javax.swing.JFrame {
             }
             break;
             case "3": {
-
+                int posi = Integer.parseInt(JOptionPane.showInputDialog("Ingrese archivo a elimianr"));
+                if (navegador instanceof Carpeta) {
+                    navegador.getLista_archivo().remove(posi);
+                } else if (navegador instanceof Archivo) {
+                    navegador.getLista_archivo().remove(posi);
+                }
+                JOptionPane.showMessageDialog(null, "Se elimino con exito");
             }
             break;
             case "4": {
