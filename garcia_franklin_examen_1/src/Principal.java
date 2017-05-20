@@ -1041,7 +1041,7 @@ public class Principal extends javax.swing.JFrame {
                         + "2-Nuevo archivo \n");
                 if (o.equals("1")) {
                     int posi=Integer.parseInt(JOptionPane.showInputDialog("Donde quiero crear"));
-                    navegador=((Carpeta)navegador.getLista_archivo().get(posi)).add(new Carpeta());
+                    navegador.getLista_archivo().add(new Carpeta());
                 } else if (o.equals("2")) {
                     navegador.getLista_archivo().add(new Archivo());
                 }
