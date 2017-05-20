@@ -1063,7 +1063,7 @@ public class Principal extends javax.swing.JFrame {
             case "4": {
 
             }
-            break;
+            break; 
             case "5": {
                 navegador = navegador.getPerteneceA();
             }
